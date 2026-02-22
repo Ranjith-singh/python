@@ -1,0 +1,88 @@
+pandas is mainly used for performing ETL ops on the data
+it can be used to read/write to a file
+pandas mainly operate with data in 2 types
+    Series: for 1 dimensional data
+    DataFrame: for 2 dimensional data
+pandas consist of various methods for:
+    Date_range("YYYY/MM/DD"), concat(), cut(), group(), Series() and DataFrame()
+numpy:
+    numpy helps in converting data to array types
+    it helps to performing various agg operations like:
+        count(), sum(), mean(), min(), max()
+    it also helps in extraction of index/rows and columns
+rows are also known as indices/index
+Date_range:
+    takes particular date in "YYYY/MM/DD" and periods as args
+    can also specify freq of increments for periods
+pd.Series-s:
+    similar to 1D array
+    form Series from list, array, Date_range and basically any 1D sequence
+    also takes index and dtype as arg
+    by default dtype: object
+    assigning of values can be done using iloc: takes index, loc: takes index values
+    Series.value-counts()
+    s.str: can perform any of the std string methods
+
+both loc and iloc :
+    takespositions as arg in case of Series/DataFrame
+    in takes list arg only in case of 1D/Series obj
+
+pd.DataFrame-df:
+    similar to 2D array
+    takes 2D data/sequence
+    when you extract a particular row/column from DataFrame it becomes a pd.Series
+    can be provided using numpy.random lib: randn(1,2), randint(0,9,(1,2))
+        in the form of a dict: {}
+            while passing as dict size() should be = other Series or 1
+    it consist of index/rows and columns which can be passed as args
+    you can use range() to provide continuous values following a pattern
+    head() and tail() to fetch data to a limit from above/below
+    various fields and methods such as df.index, df.columns, df.to_numpy()
+    df.describe():
+        result of agg func's on the DataFrame according to columns
+    df.T: transpose
+    sort_index(axis=0:index 1:col, ascending:Boolean): sort based on the index/column values
+    sort_values(by="B"): values in particular column
+    df["A"]: provide Series of values in col A
+        the Series obtained is a list so we can perform ops like slice(), reverse() etc [::]
+        it can also be done on index values
+    use loc[] and iloc[] to extract DataFrame, Series or values from existing DataFrame
+    df[df["A"]>0]: extract DataFrame from existing DataFrame using conditions statements
+    copy(): value copy, deep_copy(): reference copy
+    df["E"]=[]: add values to existing column or creates new column
+    df["E"].isin(): multiple = statements
+        reverse using ~ or ==False after equation
+    based on conditions we can perform different operations
+    dropna(how=any): if 1 column val is null entire row deleted, fillna(value=5)
+    isna(): return Boolean for each val
+    Series.shift(2): move values forward
+    df.sub(): subtract Series values from each column
+    df.agg(lambda x: np.mean(x)*5.3) and df.transform():each element
+    break DataFrame using [] and join using pd.concat()
+    pd.merge(df1, df2, on="key"): similar to join in sql
+    df.groupby("A")["C","D"].sum(): similar to sql groupby C and D columns should be summed
+    specify multiIndex using pd.multiIndex: for 2D arrays
+    stack(): increase groupby or column to index
+    unstack(index): decrease groupby based on index
+    pd.pivot_table():
+        making pivot_table form DataFrame
+        specify arg columns, index and values for pivot_table within the DataFrame columns
+    ts.resample("1Min").sum(): groupby index based on resample size
+    tz_localize(): local time zone and tz_convert(): from local time zone to another time zone
+    +pd.offsetBusinessDays(5): adds 5 days + weekends to existing Date_range
+    provide category column to specific column using .astype():
+        .cat. to rename and set category: adds new category
+        can also sort_values(by=category)
+
+matplotlib.pyplot:
+    using DataFrame.plot() and Series.plot() to plot diff graphs
+    use cumsum(), plt.figure(), plt.legend() to make graphs cleaner
+
+
+use pd.to_csv/to_excel: to write to a file
+use pd.read_csv/excel: to read from a file, also use args like sheet_name and index_col
+
+
+
+
+    
